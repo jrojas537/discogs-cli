@@ -49,41 +49,58 @@ You must have the Go programming language toolchain installed.
     ```
     *You can generate a Personal Access Token from your Discogs account settings.*
 
+4.  **Making it Globally Accessible (Optional):**
+    To run `discogs-cli` from anywhere without typing the full path, you need to place the executable in a directory that is in your system's PATH.
+
+    -   **Option A: Move the binary (Recommended)**
+        Move the compiled `discogs-cli` binary to a standard location like `/usr/local/bin`.
+        ```bash
+        sudo mv ./scripts/discogs-cli /usr/local/bin/discogs-cli
+        ```
+
+    -   **Option B: Create a Symbolic Link**
+        Alternatively, you can create a symbolic link from its current location to a directory in your PATH.
+        ```bash
+        sudo ln -s "$(pwd)/scripts/discogs-cli" /usr/local/bin/discogs-cli
+        ```
+
+    Once you've done this, you can run the tool from any directory by simply typing `discogs-cli`.
+
 ## Usage
 
-Once configured, you can run the following commands from the root of the project directory.
+If you've made the binary globally accessible, you can run the following commands from anywhere. Otherwise, you will need to use the full path to the executable (e.g., `./scripts/discogs-cli`).
 
 ### Collection Commands
 ```bash
 # List all collection folders
-./scripts/discogs-cli collection list-folders
+discogs-cli collection list-folders
 
 # List records from the default "All" folder
-./scripts/discogs-cli collection list
+discogs-cli collection list
 
 # List records from a specific folder using its ID
-./scripts/discogs-cli collection list --folder 1234567
+discogs-cli collection list --folder 1234567
 ```
 
 ### Search Commands
 ```bash
 # Search for a release (default type)
-./scripts/discogs-cli search "Daft Punk - Discovery"
+discogs-cli search "Daft Punk - Discovery"
 
 # Search for an artist
-./scripts/discogs-cli search --type artist "Aphex Twin"
+discogs-cli search --type artist "Aphex Twin"
 ```
 
 ### Wantlist Commands
 ```bash
 # Display all items in your wantlist
-./scripts/discogs-cli wantlist list
+discogs-cli wantlist list
 
 # Add a release to your wantlist by its ID
-./scripts/discogs-cli wantlist add 12345
+discogs-cli wantlist add 12345
 
 # Remove a release from your wantlist by its ID
-./scripts/discogs-cli wantlist remove 12345
+discogs-cli wantlist remove 12345
 ```
 
 ## License

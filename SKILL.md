@@ -17,28 +17,33 @@ This skill is a Go program and requires the Go toolchain to be installed and com
 
 ## One-Time Setup
 
-Before first use, you must compile the tool and configure your credentials.
+Before first use, you must compile the tool, ensure the resulting binary is in the system's PATH, and configure your credentials.
 
 1.  **Compile the tool:**
+    Navigate to the `scripts` directory inside the skill and run the Go build command.
     ```bash
-    cd ./discogs-cli/scripts && go build -o discogs-cli .
+    cd <path_to_skill>/scripts && go build -o discogs-cli .
     ```
 
-2.  **Configure Credentials:** This command saves your Discogs token and username to a configuration file so you don't have to enter them again.
+2.  **Install the tool:**
+    Move the compiled `discogs-cli` binary to a location in the system's PATH, such as `/usr/local/bin`.
+
+3.  **Configure Credentials:**
+    This command saves your Discogs token and username to a configuration file (`~/.config/discogs-cli/config.yaml`).
     ```bash
-    ./discogs-cli/scripts/discogs-cli config set -u "YourUsername" -t "YourSecretToken"
+    discogs-cli config set -u "YourUsername" -t "YourSecretToken"
     ```
 
 ## Usage
 
-Once configured, you can run commands from anywhere by referencing the compiled binary.
+Once the binary is compiled and in the system's PATH, you can run the following commands.
 
 ### List Collection Folders
 
 Shows all folders and their record counts.
 
 ```bash
-./discogs-cli/scripts/discogs-cli collection list-folders
+discogs-cli collection list-folders
 ```
 
 ### List Releases in a Folder
@@ -47,10 +52,10 @@ Shows all records within a specific folder. The output is a formatted table.
 
 ```bash
 # List all releases from the "All" folder (default)
-./discogs-cli/scripts/discogs-cli collection list
+discogs-cli collection list
 
 # List all releases from a specific folder by ID
-./discogs-cli/scripts/discogs-cli collection list --folder 8815833
+discogs-cli collection list --folder 8815833
 ```
 
 ## Search the Discogs Database
@@ -59,10 +64,10 @@ Search for releases, artists, or labels.
 
 ```bash
 # Search for a release (default type)
-./discogs-cli/scripts/discogs-cli search "Daft Punk - Discovery"
+discogs-cli search "Daft Punk - Discovery"
 
 # Search for an artist
-./discogs-cli/scripts/discogs-cli search --type artist "Aphex Twin"
+discogs-cli search --type artist "Aphex Twin"
 ```
 
 ## Manage Your Wantlist
@@ -74,7 +79,7 @@ Work with your Discogs wantlist.
 Displays all items in your wantlist.
 
 ```bash
-./discogs-cli/scripts/discogs-cli wantlist list
+discogs-cli wantlist list
 ```
 
 ### Add to Your Wantlist
@@ -82,7 +87,7 @@ Displays all items in your wantlist.
 Adds a release to your wantlist by its ID.
 
 ```bash
-./discogs-cli/scripts/discogs-cli wantlist add 12345
+discogs-cli wantlist add 12345
 ```
 
 ### Remove from Your Wantlist
@@ -90,5 +95,5 @@ Adds a release to your wantlist by its ID.
 Removes a release from your wantlist by its ID.
 
 ```bash
-./discogs-cli/scripts/discogs-cli wantlist remove 12345
+discogs-cli wantlist remove 12345
 ```
