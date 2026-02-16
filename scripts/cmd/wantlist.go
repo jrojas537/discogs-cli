@@ -29,11 +29,6 @@ type BasicInformation struct {
 	Year    int      `json:"year"`
 }
 
-// Artist holds the name of an artist.
-type Artist struct {
-	Name string `json:"name"`
-}
-
 // wantlistCmd represents the base command for wantlist operations.
 // It doesn't do anything on its own but serves as an entry point for subcommands.
 var wantlistCmd = &cobra.Command{

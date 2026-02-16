@@ -38,6 +38,14 @@ Before first use, you must compile the tool, ensure the resulting binary is in t
 
 Once the binary is compiled and in the system's PATH, you can run the following commands.
 
+### Fetch Album Art
+
+Downloads the album art for a given release and displays it in the chat.
+
+```bash
+discogs-cli release art <release_id>
+```
+
 ### List Collection Folders
 
 Shows all folders and their record counts.

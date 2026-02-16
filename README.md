@@ -12,6 +12,7 @@ This is one of my first projects building a skill from scratch, and I'm new to b
 
 *   **List Collection Folders:** View all the folders in your Discogs collection.
 *   **List Releases:** Get a clean, tabular view of all the records within a specific folder.
+*   **Fetch Album Art:** Download and display the cover art for any release.
 *   **Search Database:** Search for artists, releases, and labels on Discogs.
 *   **Manage Wantlist:** List, add, or remove items from your wantlist.
 *   **Secure Configuration:** Your Discogs username and personal access token are stored securely in a local configuration file.
@@ -69,6 +70,12 @@ You must have the Go programming language toolchain installed.
 ## Usage
 
 If you've made the binary globally accessible, you can run the following commands from anywhere. Otherwise, you will need to use the full path to the executable (e.g., `./scripts/discogs-cli`).
+
+### Release Commands
+```bash
+# Download and display the album art for a specific release
+discogs-cli release art 4570366
+```
 
 ### Collection Commands
 ```bash
