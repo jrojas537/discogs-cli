@@ -1,6 +1,6 @@
 {
   "name": "@jrojas537/discogs-cli",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "An OpenClaw skill to manage your Discogs collection via the command line.",
   "author": "jrojas537@gmail.com",
   "license": "MIT"
