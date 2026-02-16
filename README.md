@@ -10,9 +10,11 @@ This is one of my first projects building a skill from scratch, and I'm new to b
 
 ## Features
 
-*   **List Collection Folders:** View all the folders in your Discogs collection and the number of records in each.
+*   **List Collection Folders:** View all the folders in your Discogs collection.
 *   **List Releases:** Get a clean, tabular view of all the records within a specific folder.
-*   **Secure Configuration:** Your Discogs username and personal access token are stored securely in a local configuration file, not in the code.
+*   **Search Database:** Search for artists, releases, and labels on Discogs.
+*   **Manage Wantlist:** List, add, or remove items from your wantlist.
+*   **Secure Configuration:** Your Discogs username and personal access token are stored securely in a local configuration file.
 
 ## Getting Started
 
@@ -51,18 +53,37 @@ You must have the Go programming language toolchain installed.
 
 Once configured, you can run the following commands from the root of the project directory.
 
-### List All Folders
+### Collection Commands
 ```bash
+# List all collection folders
 ./scripts/discogs-cli collection list-folders
-```
 
-### List Records in a Folder
-```bash
 # List records from the default "All" folder
 ./scripts/discogs-cli collection list
 
 # List records from a specific folder using its ID
 ./scripts/discogs-cli collection list --folder 1234567
+```
+
+### Search Commands
+```bash
+# Search for a release (default type)
+./scripts/discogs-cli search "Daft Punk - Discovery"
+
+# Search for an artist
+./scripts/discogs-cli search --type artist "Aphex Twin"
+```
+
+### Wantlist Commands
+```bash
+# Display all items in your wantlist
+./scripts/discogs-cli wantlist list
+
+# Add a release to your wantlist by its ID
+./scripts/discogs-cli wantlist add 12345
+
+# Remove a release from your wantlist by its ID
+./scripts/discogs-cli wantlist remove 12345
 ```
 
 ## License
