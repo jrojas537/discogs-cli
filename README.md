@@ -92,6 +92,8 @@ discogs-cli search --type artist "Aphex Twin"
 ```
 
 ### Wantlist Commands
+
+Manage your Discogs wantlist.
 ```bash
 # Display all items in your wantlist
 discogs-cli wantlist list
@@ -102,6 +104,39 @@ discogs-cli wantlist add 12345
 # Remove a release from your wantlist by its ID
 discogs-cli wantlist remove 12345
 ```
+
+## Advanced Features (Caching & Valuation)
+
+This tool includes a local caching mechanism to provide advanced features like collection valuation without constantly hitting the Discogs API.
+
+### `collection sync`
+
+This is the most important new command. It fetches detailed information (including lowest price) for every single item in your collection and saves it to a local cache file.
+
+**This command will be slow**, especially on the first run, as it needs to make an API request for every album you own. It will show a progress bar.
+
+```bash
+discogs-cli collection sync
+```
+You should run this command periodically (e.g., once a week) to keep your local price data up to date.
+
+### `collection value`
+
+This command reads the data from the cache created by `sync` and provides a table of the lowest market price for each album. It also calculates a total estimated value for the entire collection. This command is always fast as it uses local data.
+
+```bash
+discogs-cli collection value
+```
+If the cache is missing, it will prompt you to run `discogs-cli collection sync`.
+
+### `collection get <RELEASE_ID>`
+
+This command provides a detailed "card" of information for a single release, including the tracklist. It is the best way to see deep details for one album.
+
+```bash
+discogs-cli collection get 35198584
+```
+
 
 ## License
 

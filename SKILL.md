@@ -97,3 +97,31 @@ Removes a release from your wantlist by its ID.
 ```bash
 discogs-cli wantlist remove 12345
 ```
+
+## Caching and Valuation Commands
+
+These commands rely on a local cache for performance. The user must run `sync` first to populate the cache.
+
+### Sync Collection Details (Slow)
+
+Fetches detailed data for every item in the collection and builds a local cache. This command is slow and should be run in the background. Inform the user that this will take time.
+
+```bash
+discogs-cli collection sync
+```
+
+### Get Collection Value (Fast)
+
+Reads the local cache to provide the estimated market value for each item and the total collection. This command is fast. If it fails, the cache is likely missing, and the user needs to run the `sync` command.
+
+```bash
+discogs-cli collection value
+```
+
+### Get Single Release Details (Fast)
+
+Provides a detailed view of a single release, including tracklist.
+
+```bash
+discogs-cli collection get 35198584
+```
