@@ -52,3 +52,43 @@ Shows all records within a specific folder. The output is a formatted table.
 # List all releases from a specific folder by ID
 ./discogs-cli/scripts/discogs-cli collection list --folder 8815833
 ```
+
+## Search the Discogs Database
+
+Search for releases, artists, or labels.
+
+```bash
+# Search for a release (default type)
+./discogs-cli/scripts/discogs-cli search "Daft Punk - Discovery"
+
+# Search for an artist
+./discogs-cli/scripts/discogs-cli search --type artist "Aphex Twin"
+```
+
+## Manage Your Wantlist
+
+Work with your Discogs wantlist.
+
+### List Your Wantlist
+
+Displays all items in your wantlist.
+
+```bash
+./discogs-cli/scripts/discogs-cli wantlist list
+```
+
+### Add to Your Wantlist
+
+Adds a release to your wantlist by its ID.
+
+```bash
+./discogs-cli/scripts/discogs-cli wantlist add 12345
+```
+
+### Remove from Your Wantlist
+
+Removes a release from your wantlist by its ID.
+
+```bash
+./discogs-cli/scripts/discogs-cli wantlist remove 12345
+```
